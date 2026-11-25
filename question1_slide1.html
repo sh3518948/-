@@ -1,0 +1,475 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>공통질문 1 — KOSPI 시가총액 비교</title><style>
+:root{--navy:#142847;--light:#eef3f9;--text:#1b2a42}
+*{box-sizing:border-box}body{font-family:"Malgun Gothic","Noto Sans KR",Arial,sans-serif;margin:0;color:var(--text);background:#e8eef7}
+.slide{max-width:1920px;margin:12px auto;background:#fff;padding:18px 24px 20px;min-height:calc(100vh - 24px)}
+.head{display:flex;justify-content:space-between;align-items:center;background:var(--navy);color:white;padding:10px 16px;border-radius:8px;font-size:15px}
+h1{font-size:28px;margin:14px 0 5px}.sub{font-size:13px;color:#53657d;margin:0 0 16px}
+.graph-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.panel{min-width:0;border:1px solid #c6d2e2;border-radius:10px;overflow:hidden;background:white}
+.panel-title{background:#203a63;color:white;text-align:center;font-size:18px;font-weight:750;padding:10px}
+.table-head{display:grid;grid-template-columns:31px 145px 64px minmax(0,1fr) 64px;gap:5px;padding:8px 9px;font-size:11px;font-weight:700;background:#edf2f8}
+/* 2024년 패널: 2026년 순위 열 제목을 한 줄로 표시 */
+.panel:first-child .table-head,.panel:first-child .stock-row{grid-template-columns:31px 145px 84px minmax(0,1fr) 64px}
+.panel:first-child .table-head span:nth-child(3){white-space:nowrap}
+.panel:first-child .axis{padding-left:274px}
+.stock-row{display:grid;grid-template-columns:31px 145px 64px minmax(0,1fr) 64px;gap:5px;align-items:center;height:23px;padding:0 9px;font-size:11px;cursor:crosshair;position:relative;outline:none}
+.stock-row:nth-child(even){background:#f5f7fb}.stock-row:hover,.stock-row:focus{background:#e4eeff}
+.stock-row.active{background:#dce9ff;box-shadow:inset 0 0 0 1px #3a69ac;z-index:2}
+.stock-row.dim{opacity:.22}.rank{text-align:right;font-weight:700}.company{font-weight:650;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.position{text-align:center;font-variant-numeric:tabular-nums;white-space:nowrap}
+.rank-out{color:#ce2732;font-size:12px}.rank-in{color:#244263;font-size:12px}
+.change{font-size:11px}.up-small{color:#b56a00}.up-big{color:#d32932}.down-small{color:#138abe}.down-big{color:#15449c}.flat{color:#69798b}
+.new{background:#7030a0;color:white;border-radius:4px;padding:2px 5px}
+.track{width:100%;height:19px;border-left:1px solid #99a9ba;position:relative;background:repeating-linear-gradient(to right,transparent 0,transparent calc(20% - 1px),#e0e7ef calc(20% - 1px),#e0e7ef 20%)}
+.bar{height:100%;min-width:1px;transition:filter .12s,box-shadow .12s}.active .bar{filter:saturate(1.3);box-shadow:0 0 0 2px #111f38}
+.cap{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+.axis{padding:3px 74px 8px 254px;display:flex;justify-content:space-between;color:#66788d;font-size:10px}
+.notes{display:grid;grid-template-columns:1.15fr 1fr;gap:10px;margin-top:12px}
+.note{background:#f1f5fa;border-radius:7px;padding:11px 13px;font-size:12px;line-height:1.7}
+.note strong{font-size:13px}.legend{display:flex;gap:7px 17px;flex-wrap:wrap;margin-top:9px}
+.legend-item{font-size:11px;display:inline-flex;align-items:center;gap:5px}.legend-item i{display:inline-block;width:12px;height:12px;border-radius:3px}
+.foot{font-size:10px;color:#65758a;margin-top:11px}
+#tooltip{position:fixed;left:0;top:0;max-width:340px;display:none;z-index:9999;padding:12px 15px;border-radius:9px;background:#122740;color:#fff;box-shadow:0 12px 36px #0005;font-size:12px;line-height:1.7;pointer-events:none}
+#tooltip b{font-size:14px}#tooltip .muted{color:#b7cce3}
+@media(max-width:1150px){.slide{min-width:1150px}body{overflow-x:auto}}@media print{body{background:#fff}.slide{margin:0}#tooltip{display:none!important}}
+</style></head><body><main class="slide">
+<div class="head"><strong>QUESTION 01 | 코스피 시가총액 순위 변화</strong><span>2024.03.27 – 2026.09.02</span></div>
+<h1>시가총액 상위 30개 종목 비교</h1>
+<p class="sub">동일한 시가총액 눈금 · KRICS 9개 섹터(검토용 매핑) · 행에 마우스를 올리면 양쪽 동일 종목 강조</p>
+<div class="graph-grid">
+<section class="panel"><div class="panel-title">2024년 3월 27일</div><div class="table-head"><span>순위</span><span>종목명</span><span>2026년 순위</span><span>시가총액 막대</span><span>조 원</span></div>
+<div class="stock-row" data-code="005930" data-info="{&quot;name&quot;: &quot;삼성전자&quot;, &quot;code&quot;: &quot;005930&quot;, &quot;sector&quot;: &quot;정보기술&quot;, &quot;a_rank&quot;: 1, &quot;a_cap&quot;: 476.3886, &quot;b_rank&quot;: 1, &quot;b_cap&quot;: 1464.4928, &quot;present24&quot;: true, &quot;present26&quot;: true}" tabindex="0">
+          <span class="rank">01</span>
+          <span class="company" title="삼성전자">삼성전자</span>
+          <span class="position"><b class="rank-in">1위</b></span>
+          <div class="track"><div class="bar" style="width:31.75924%;background:#6838C4"></div></div>
+          <span class="cap">476.4</span>
+        </div>
+<div class="stock-row" data-code="000660" data-info="{&quot;name&quot;: &quot;SK하이닉스&quot;, &quot;code&quot;: &quot;000660&quot;, &quot;sector&quot;: &quot;정보기술&quot;, &quot;a_rank&quot;: 2, &quot;a_cap&quot;: 131.914, &quot;b_rank&quot;: 2, &quot;b_cap&quot;: 1178.2842, &quot;present24&quot;: true, &quot;present26&quot;: true}" tabindex="0">
+          <span class="rank">02</span>
+          <span class="company" title="SK하이닉스">SK하이닉스</span>
+          <span class="position"><b class="rank-in">2위</b></span>
+          <div class="track"><div class="bar" style="width:8.79427%;background:#6838C4"></div></div>
+          <span class="cap">131.9</span>
+        </div>
+<div class="stock-row" data-code="373220" data-info="{&quot;name&quot;: &quot;LG에너지솔루션&quot;, &quot;code&quot;: &quot;373220&quot;, &quot;sector&quot;: &quot;산업재&quot;, &quot;a_rank&quot;: 3, &quot;a_cap&quot;: 95.706, &quot;b_rank&quot;: 6, &quot;b_cap&quot;: 81.315, &quot;present24&quot;: true, &quot;present26&quot;: true}" tabindex="0">
+          <span class="rank">03</span>
+          <span class="company" title="LG에너지솔루션">LG에너지솔루션</span>
+          <span class="position"><b class="rank-in">6위</b></span>
+          <div class="track"><div class="bar" style="width:6.38040%;background:#1677D2"></div></div>
+          <span class="cap">95.7</span>
+        </div>
+<div class="stock-row" data-code="207940" data-info="{&quot;name&quot;: &quot;삼성바이오로직스&quot;, &quot;code&quot;: &quot;207940&quot;, &quot;sector&quot;: &quot;헬스케어&quot;, &quot;a_rank&quot;: 4, &quot;a_cap&quot;: 59.5015, &quot;b_rank&quot;: 8, &quot;b_cap&quot;: 69.4827, &quot;present24&quot;: true, &quot;present26&quot;: true}" tabindex="0">
+          <span class="rank">04</span>
+          <span class="company" title="삼성바이오로직스">삼성바이오로직스</span>
+          <span class="position"><b class="rank-in">8위</b></span>
+          <div class="track"><div class="bar" style="width:3.96677%;background:#EF5AA1"></div></div>
+          <span class="cap">59.5</span>
+        </div>
+<div class="stock-row" data-code="005935" data-info="{&quot;name&quot;: &quot;삼성전자우&quot;, &quot;code&quot;: &quot;005935&quot;, &quot;sector&quot;: &quot;정보기술&quot;, &quot;a_rank&quot;: 5, &quot;a_cap&quot;: 54.9688, &quot;b_rank&quot;: 3, &quot;b_cap&quot;: 148.8399, &quot;present24&quot;: true, &quot;present26&quot;: true}" tabindex="0">
+          <span class="rank">05</span>
+          <span class="company" title="삼성전자우">삼성전자우</span>
+          <span class="position"><b class="rank-in">3위</b></span>
+          <div class="track"><div class="bar" style="width:3.66459%;background:#6838C4"></div></div>
+          <span class="cap">55.0</span>
+        </div>
+<div class="stock-row" data-code="005380" data-info="{&quot;name&quot;: &quot;현대차&quot;, &quot;code&quot;: &quot;005380&quot;, &quot;sector&quot;: &quot;모빌리티&quot;, &quot;a_rank&quot;: 6, &quot;a_cap&quot;: 51.6137, &quot;b_rank&quot;: 7, &quot;b_cap&quot;: 77.3984, &quot;present24&quot;: true, &quot;present26&quot;: true}" tabindex="0">
+          <span class="rank">06</span>
+          <span class="company" title="현대차">현대차</span>
+          <span class="position"><b class="rank-in">7위</b></span>
+          <div class="track"><div class="bar" style="width:3.44091%;background:#21A45A"></div></div>
+          <span class="cap">51.6</span>
+        </div>
+<div class="stock-row" data-code="000270" data-info="{&quot;name&quot;: &quot;기아&quot;, &quot;code&quot;: &quot;000270&quot;, &quot;sector&quot;: &quot;모빌리티&quot;, &quot;a_rank&quot;: 7, &quot;a_cap&quot;: 45.6722, &quot;b_rank&quot;: 15, &quot;b_cap&quot;: 48.5674, &quot;present24&quot;: true, &quot;present26&quot;: true}" tabindex="0">
+          <span class="rank">07</span>
+          <span class="company" title="기아">기아</span>
+          <span class="position"><b class="rank-in">15위</b></span>
+          <div class="track"><div class="bar" style="width:3.04481%;background:#21A45A"></div></div>
+          <span class="cap">45.7</span>
+        </div>
+<div class="stock-row" data-code="068270" data-info="{&quot;name&quot;: &quot;셀트리온&quot;, &quot;code&quot;: &quot;068270&quot;, &quot;sector&quot;: &quot;헬스케어&quot;, &quot;a_rank&quot;: 8, &quot;a_cap&quot;: 40.1648, &quot;b_rank&quot;: 18, &quot;b_cap&quot;: 43.3366, &quot;present24&quot;: true, &quot;present26&quot;: true}" tabindex="0">
+          <span class="rank">08</span>
+          <span class="company" title="셀트리온">셀트리온</span>
+          <span class="position"><b class="rank-in">18위</b></span>
+          <div class="track"><div class="bar" style="width:2.67765%;background:#EF5AA1"></div></div>
+          <span class="cap">40.2</span>
+        </div>
+<div class="stock-row" data-code="005490" data-info="{&quot;name&quot;: &quot;POSCO홀딩스&quot;, &quot;code&quot;: &quot;005490&quot;, &quot;sector&quot;: &quot;소재&quot;, &quot;a_rank&quot;: 9, &quot;a_cap&quot;: 36.1965, &quot;b_rank&quot;: 26, &quot;b_cap&quot;: 26.1497, &quot;present24&quot;: true, &quot;present26&quot;: true}" tabindex="0">
+          <span class="rank">09</span>
+          <span class="company" title="POSCO홀딩스">POSCO홀딩스</span>
+          <span class="position"><b class="rank-in">26위</b></span>
+          <div class="track"><div class="bar" style="width:2.41310%;background:#7B8794"></div></div>
+          <span class="cap">36.2</span>
+        </div>
+<div class="stock-row" data-code="006400" data-info="{&quot;name&quot;: &quot;삼성SDI&quot;, &quot;code&quot;: &quot;006400&quot;, &quot;sector&quot;: &quot;산업재&quot;, &quot;a_rank&quot;: 10, &quot;a_cap&quot;: 33.0414, &quot;b_rank&quot;: 17, &quot;b_cap&quot;: 43.355, &quot;present24&quot;: true, &quot;present26&quot;: true}" tabindex="0">
+          <span class="rank">10</span>
+          <span class="company" title="삼성SDI">삼성SDI</span>
+          <span class="position"><b class="rank-in">17위</b></span>
+          <div class="track"><div class="bar" style="width:2.20276%;background:#1677D2"></div></div>
+          <span class="cap">33.0</span>
+        </div>
+<div class="stock-row" data-code="051910" data-info="{&quot;name&quot;: &quot;LG화학&quot;, &quot;code&quot;: &quot;051910&quot;, &quot;sector&quot;: &quot;에너지화학&quot;, &quot;a_rank&quot;: 11, &quot;a_cap&quot;: 31.343, &quot;b_rank&quot;: 41, &quot;b_cap&quot;: 18.9893, &quot;present24&quot;: true, &quot;present26&quot;: false}" tabindex="0">
+          <span class="rank">11</span>
+          <span class="company" title="LG화학">LG화학</span>
+          <span class="position"><b class="rank-out">41위</b></span>
+          <div class="track"><div class="bar" style="width:2.08953%;background:#EE7B19"></div></div>
+          <span class="cap">31.3</span>
+        </div>
+<div class="stock-row" data-code="035420" data-info="{&quot;name&quot;: &quot;NAVER&quot;, &quot;code&quot;: &quot;035420&quot;, &quot;sector&quot;: &quot;미디어 및 콘텐츠&quot;, &quot;a_rank&quot;: 12, &quot;a_cap&quot;: 30.7439, &quot;b_rank&quot;: 23, &quot;b_cap&quot;: 31.784, &quot;present24&quot;: true, &quot;present26&quot;: true}" tabindex="0">
+          <span class="rank">12</span>
+          <span class="company" title="NAVER">NAVER</span>
+          <span class="position"><b class="rank-in">23위</b></span>
+          <div class="track"><div class="bar" style="width:2.04959%;background:#93B91C"></div></div>
+          <span class="cap">30.7</span>
+        </div>
+<div class="stock-row" data-code="028260" data-info="{&quot;name&quot;: &quot;삼성물산&quot;, &quot;code&quot;: &quot;028260&quot;, &quot;sector&quot;: &quot;산업재&quot;, &quot;a_rank&quot;: 13, &quot;a_cap&quot;: 29.2678, &quot;b_rank&quot;: 9, &quot;b_cap&quot;: 60.4885, &quot;present24&quot;: true, &quot;present26&quot;: true}" tabindex="0">
+          <span class="rank">13</span>
+          <span class="company" title="삼성물산">삼성물산</span>
+          <span class="position"><b class="rank-in">9위</b></span>
+          <div class="track"><div class="bar" style="width:1.95119%;background:#1677D2"></div></div>
+          <span class="cap">29.3</span>
+        </div>
+<div class="stock-row" data-code="105560" data-info="{&quot;name&quot;: &quot;KB금융&quot;, &quot;code&quot;: &quot;105560&quot;, &quot;sector&quot;: &quot;금융 및 부동산&quot;, &quot;a_rank&quot;: 14, &quot;a_cap&quot;: 27.8423, &quot;b_rank&quot;: 10, &quot;b_cap&quot;: 59.9777, &quot;present24&quot;: true, &quot;present26&quot;: true}" tabindex="0">
+          <span class="rank">14</span>
+          <span class="company" title="KB금융">KB금융</span>
+          <span class="position"><b class="rank-in">10위</b></span>
+          <div class="track"><div class="bar" style="width:1.85615%;background:#0C55B7"></div></div>
+          <span class="cap">27.8</span>
+        </div>
+<div class="stock-row" data-code="012330" data-info="{&quot;name&quot;: &quot;현대모비스&quot;, &quot;code&quot;: &quot;012330&quot;, &quot;sector&quot;: &quot;모빌리티&quot;, &quot;a_rank&quot;: 15, &quot;a_cap&quot;: 24.7718, &quot;b_rank&quot;: 20, &quot;b_cap&quot;: 37.3205, &quot;present24&quot;: true, &quot;present26&quot;: true}" tabindex="0">
+          <span class="rank">15</span>
+          <span class="company" title="현대모비스">현대모비스</span>
+          <span class="position"><b class="rank-in">20위</b></span>
+          <div class="track"><div class="bar" style="width:1.65145%;background:#21A45A"></div></div>
+          <span class="cap">24.8</span>
+        </div>
+<div class="stock-row" data-code="035720" data-info="{&quot;name&quot;: &quot;카카오&quot;, &quot;code&quot;: &quot;035720&quot;, &quot;sector&quot;: &quot;미디어 및 콘텐츠&quot;, &quot;a_rank&quot;: 16, &quot;a_cap&quot;: 24.3944, &quot;b_rank&quot;: 53, &quot;b_cap&quot;: 15.5486, &quot;present24&quot;: true, &quot;present26&quot;: false}" tabindex="0">
+          <span class="rank">16</span>
+          <span class="company" title="카카오">카카오</span>
+          <span class="position"><b class="rank-out">53위</b></span>
+          <div class="track"><div class="bar" style="width:1.62629%;background:#93B91C"></div></div>
+          <span class="cap">24.4</span>
+        </div>
+<div class="stock-row" data-code="003670" data-info="{&quot;name&quot;: &quot;포스코퓨처엠&quot;, &quot;code&quot;: &quot;003670&quot;, &quot;sector&quot;: &quot;산업재&quot;, &quot;a_rank&quot;: 17, &quot;a_cap&quot;: 24.1685, &quot;b_rank&quot;: 52, &quot;b_cap&quot;: 15.6545, &quot;present24&quot;: true, &quot;present26&quot;: false}" tabindex="0">
+          <span class="rank">17</span>
+          <span class="company" title="포스코퓨처엠">포스코퓨처엠</span>
+          <span class="position"><b class="rank-out">52위</b></span>
+          <div class="track"><div class="bar" style="width:1.61123%;background:#1677D2"></div></div>
+          <span class="cap">24.2</span>
+        </div>
+<div class="stock-row" data-code="055550" data-info="{&quot;name&quot;: &quot;신한지주&quot;, &quot;code&quot;: &quot;055550&quot;, &quot;sector&quot;: &quot;금융 및 부동산&quot;, &quot;a_rank&quot;: 18, &quot;a_cap&quot;: 24.0997, &quot;b_rank&quot;: 13, &quot;b_cap&quot;: 51.8743, &quot;present24&quot;: true, &quot;present26&quot;: true}" tabindex="0">
+          <span class="rank">18</span>
+          <span class="company" title="신한지주">신한지주</span>
+          <span class="position"><b class="rank-in">13위</b></span>
+          <div class="track"><div class="bar" style="width:1.60665%;background:#0C55B7"></div></div>
+          <span class="cap">24.1</span>
+        </div>
+<div class="stock-row" data-code="032830" data-info="{&quot;name&quot;: &quot;삼성생명&quot;, &quot;code&quot;: &quot;032830&quot;, &quot;sector&quot;: &quot;금융 및 부동산&quot;, &quot;a_rank&quot;: 19, &quot;a_cap&quot;: 18.82, &quot;b_rank&quot;: 11, &quot;b_cap&quot;: 58.8, &quot;present24&quot;: true, &quot;present26&quot;: true}" tabindex="0">
+          <span class="rank">19</span>
+          <span class="company" title="삼성생명">삼성생명</span>
+          <span class="position"><b class="rank-in">11위</b></span>
+          <div class="track"><div class="bar" style="width:1.25467%;background:#0C55B7"></div></div>
+          <span class="cap">18.8</span>
+        </div>
+<div class="stock-row" data-code="086790" data-info="{&quot;name&quot;: &quot;하나금융지주&quot;, &quot;code&quot;: &quot;086790&quot;, &quot;sector&quot;: &quot;금융 및 부동산&quot;, &quot;a_rank&quot;: 20, &quot;a_cap&quot;: 17.2198, &quot;b_rank&quot;: 21, &quot;b_cap&quot;: 37.0122, &quot;present24&quot;: true, &quot;present26&quot;: true}" tabindex="0">
+          <span class="rank">20</span>
+          <span class="company" title="하나금융지주">하나금융지주</span>
+          <span class="position"><b class="rank-in">21위</b></span>
+          <div class="track"><div class="bar" style="width:1.14799%;background:#0C55B7"></div></div>
+          <span class="cap">17.2</span>
+        </div>
+<div class="stock-row" data-code="138040" data-info="{&quot;name&quot;: &quot;메리츠금융지주&quot;, &quot;code&quot;: &quot;138040&quot;, &quot;sector&quot;: &quot;금융 및 부동산&quot;, &quot;a_rank&quot;: 21, &quot;a_cap&quot;: 16.3104, &quot;b_rank&quot;: 35, &quot;b_cap&quot;: 21.7217, &quot;present24&quot;: true, &quot;present26&quot;: false}" tabindex="0">
+          <span class="rank">21</span>
+          <span class="company" title="메리츠금융지주">메리츠금융지주</span>
+          <span class="position"><b class="rank-out">35위</b></span>
+          <div class="track"><div class="bar" style="width:1.08736%;background:#0C55B7"></div></div>
+          <span class="cap">16.3</span>
+        </div>
+<div class="stock-row" data-code="066570" data-info="{&quot;name&quot;: &quot;LG전자&quot;, &quot;code&quot;: &quot;066570&quot;, &quot;sector&quot;: &quot;소비재&quot;, &quot;a_rank&quot;: 22, &quot;a_cap&quot;: 15.8738, &quot;b_rank&quot;: 22, &quot;b_cap&quot;: 32.6584, &quot;present24&quot;: true, &quot;present26&quot;: true}" tabindex="0">
+          <span class="rank">22</span>
+          <span class="company" title="LG전자">LG전자</span>
+          <span class="position"><b class="rank-in">22위</b></span>
+          <div class="track"><div class="bar" style="width:1.05825%;background:#D62839"></div></div>
+          <span class="cap">15.9</span>
+        </div>
+<div class="stock-row" data-code="000810" data-info="{&quot;name&quot;: &quot;삼성화재&quot;, &quot;code&quot;: &quot;000810&quot;, &quot;sector&quot;: &quot;금융 및 부동산&quot;, &quot;a_rank&quot;: 23, &quot;a_cap&quot;: 14.5441, &quot;b_rank&quot;: 25, &quot;b_cap&quot;: 29.3334, &quot;present24&quot;: true, &quot;present26&quot;: true}" tabindex="0">
+          <span class="rank">23</span>
+          <span class="company" title="삼성화재">삼성화재</span>
+          <span class="position"><b class="rank-in">25위</b></span>
+          <div class="track"><div class="bar" style="width:0.96961%;background:#0C55B7"></div></div>
+          <span class="cap">14.5</span>
+        </div>
+<div class="stock-row" data-code="015760" data-info="{&quot;name&quot;: &quot;한국전력&quot;, &quot;code&quot;: &quot;015760&quot;, &quot;sector&quot;: &quot;에너지화학&quot;, &quot;a_rank&quot;: 24, &quot;a_cap&quot;: 14.2195, &quot;b_rank&quot;: 38, &quot;b_cap&quot;: 20.0614, &quot;present24&quot;: true, &quot;present26&quot;: false}" tabindex="0">
+          <span class="rank">24</span>
+          <span class="company" title="한국전력">한국전력</span>
+          <span class="position"><b class="rank-out">38위</b></span>
+          <div class="track"><div class="bar" style="width:0.94797%;background:#EE7B19"></div></div>
+          <span class="cap">14.2</span>
+        </div>
+<div class="stock-row" data-code="003550" data-info="{&quot;name&quot;: &quot;LG&quot;, &quot;code&quot;: &quot;003550&quot;, &quot;sector&quot;: &quot;정보기술&quot;, &quot;a_rank&quot;: 25, &quot;a_cap&quot;: 14.0312, &quot;b_rank&quot;: 46, &quot;b_cap&quot;: 17.9163, &quot;present24&quot;: true, &quot;present26&quot;: false}" tabindex="0">
+          <span class="rank">25</span>
+          <span class="company" title="LG">LG</span>
+          <span class="position"><b class="rank-out">46위</b></span>
+          <div class="track"><div class="bar" style="width:0.93541%;background:#6838C4"></div></div>
+          <span class="cap">14.0</span>
+        </div>
+<div class="stock-row" data-code="034730" data-info="{&quot;name&quot;: &quot;SK&quot;, &quot;code&quot;: &quot;034730&quot;, &quot;sector&quot;: &quot;정보기술&quot;, &quot;a_rank&quot;: 26, &quot;a_cap&quot;: 13.5563, &quot;b_rank&quot;: 19, &quot;b_cap&quot;: 39.514, &quot;present24&quot;: true, &quot;present26&quot;: true}" tabindex="0">
+          <span class="rank">26</span>
+          <span class="company" title="SK">SK</span>
+          <span class="position"><b class="rank-in">19위</b></span>
+          <div class="track"><div class="bar" style="width:0.90375%;background:#6838C4"></div></div>
+          <span class="cap">13.6</span>
+        </div>
+<div class="stock-row" data-code="323410" data-info="{&quot;name&quot;: &quot;카카오뱅크&quot;, &quot;code&quot;: &quot;323410&quot;, &quot;sector&quot;: &quot;금융 및 부동산&quot;, &quot;a_rank&quot;: 27, &quot;a_cap&quot;: 13.4492, &quot;b_rank&quot;: 68, &quot;b_cap&quot;: 10.4489, &quot;present24&quot;: true, &quot;present26&quot;: false}" tabindex="0">
+          <span class="rank">27</span>
+          <span class="company" title="카카오뱅크">카카오뱅크</span>
+          <span class="position"><b class="rank-out">68위</b></span>
+          <div class="track"><div class="bar" style="width:0.89661%;background:#0C55B7"></div></div>
+          <span class="cap">13.4</span>
+        </div>
+<div class="stock-row" data-code="259960" data-info="{&quot;name&quot;: &quot;크래프톤&quot;, &quot;code&quot;: &quot;259960&quot;, &quot;sector&quot;: &quot;미디어 및 콘텐츠&quot;, &quot;a_rank&quot;: 28, &quot;a_cap&quot;: 12.4297, &quot;b_rank&quot;: 70, &quot;b_cap&quot;: 10.1103, &quot;present24&quot;: true, &quot;present26&quot;: false}" tabindex="0">
+          <span class="rank">28</span>
+          <span class="company" title="크래프톤">크래프톤</span>
+          <span class="position"><b class="rank-out">70위</b></span>
+          <div class="track"><div class="bar" style="width:0.82865%;background:#93B91C"></div></div>
+          <span class="cap">12.4</span>
+        </div>
+<div class="stock-row" data-code="018260" data-info="{&quot;name&quot;: &quot;삼성에스디에스&quot;, &quot;code&quot;: &quot;018260&quot;, &quot;sector&quot;: &quot;정보기술&quot;, &quot;a_rank&quot;: 29, &quot;a_cap&quot;: 12.3727, &quot;b_rank&quot;: 44, &quot;b_cap&quot;: 18.029, &quot;present24&quot;: true, &quot;present26&quot;: false}" tabindex="0">
+          <span class="rank">29</span>
+          <span class="company" title="삼성에스디에스">삼성에스디에스</span>
+          <span class="position"><b class="rank-out">44위</b></span>
+          <div class="track"><div class="bar" style="width:0.82485%;background:#6838C4"></div></div>
+          <span class="cap">12.4</span>
+        </div>
+<div class="stock-row" data-code="033780" data-info="{&quot;name&quot;: &quot;KT&amp;G&quot;, &quot;code&quot;: &quot;033780&quot;, &quot;sector&quot;: &quot;소비재&quot;, &quot;a_rank&quot;: 30, &quot;a_cap&quot;: 12.2373, &quot;b_rank&quot;: 43, &quot;b_cap&quot;: 18.1045, &quot;present24&quot;: true, &quot;present26&quot;: false}" tabindex="0">
+          <span class="rank">30</span>
+          <span class="company" title="KT&amp;G">KT&amp;G</span>
+          <span class="position"><b class="rank-out">43위</b></span>
+          <div class="track"><div class="bar" style="width:0.81582%;background:#D62839"></div></div>
+          <span class="cap">12.2</span>
+        </div><div class="axis"><span>0</span><span>300</span><span>600</span><span>900</span><span>1200</span><span>1500조</span></div></section>
+<section class="panel"><div class="panel-title">2026년 9월 2일</div><div class="table-head"><span>순위</span><span>종목명</span><span>변동</span><span>시가총액 막대</span><span>조 원</span></div>
+<div class="stock-row" data-code="005930" data-info="{&quot;name&quot;: &quot;삼성전자&quot;, &quot;code&quot;: &quot;005930&quot;, &quot;sector&quot;: &quot;정보기술&quot;, &quot;a_rank&quot;: 1, &quot;a_cap&quot;: 476.3886, &quot;b_rank&quot;: 1, &quot;b_cap&quot;: 1464.4928, &quot;present24&quot;: true, &quot;present26&quot;: true}" tabindex="0">
+          <span class="rank">01</span>
+          <span class="company" title="삼성전자">삼성전자</span>
+          <span class="position"><b class="change flat">━ 0</b></span>
+          <div class="track"><div class="bar" style="width:97.63285%;background:#6838C4"></div></div>
+          <span class="cap">1,464.5</span>
+        </div>
+<div class="stock-row" data-code="000660" data-info="{&quot;name&quot;: &quot;SK하이닉스&quot;, &quot;code&quot;: &quot;000660&quot;, &quot;sector&quot;: &quot;정보기술&quot;, &quot;a_rank&quot;: 2, &quot;a_cap&quot;: 131.914, &quot;b_rank&quot;: 2, &quot;b_cap&quot;: 1178.2842, &quot;present24&quot;: true, &quot;present26&quot;: true}" tabindex="0">
+          <span class="rank">02</span>
+          <span class="company" title="SK하이닉스">SK하이닉스</span>
+          <span class="position"><b class="change flat">━ 0</b></span>
+          <div class="track"><div class="bar" style="width:78.55228%;background:#6838C4"></div></div>
+          <span class="cap">1,178.3</span>
+        </div>
+<div class="stock-row" data-code="005935" data-info="{&quot;name&quot;: &quot;삼성전자우&quot;, &quot;code&quot;: &quot;005935&quot;, &quot;sector&quot;: &quot;정보기술&quot;, &quot;a_rank&quot;: 5, &quot;a_cap&quot;: 54.9688, &quot;b_rank&quot;: 3, &quot;b_cap&quot;: 148.8399, &quot;present24&quot;: true, &quot;present26&quot;: true}" tabindex="0">
+          <span class="rank">03</span>
+          <span class="company" title="삼성전자우">삼성전자우</span>
+          <span class="position"><b class="change up-small">▲ +2</b></span>
+          <div class="track"><div class="bar" style="width:9.92266%;background:#6838C4"></div></div>
+          <span class="cap">148.8</span>
+        </div>
+<div class="stock-row" data-code="402340" data-info="{&quot;name&quot;: &quot;SK스퀘어&quot;, &quot;code&quot;: &quot;402340&quot;, &quot;sector&quot;: &quot;산업재&quot;, &quot;a_rank&quot;: 38, &quot;a_cap&quot;: 11.0212, &quot;b_rank&quot;: 4, &quot;b_cap&quot;: 129.5494, &quot;present24&quot;: false, &quot;present26&quot;: true}" tabindex="0">
+          <span class="rank">04</span>
+          <span class="company" title="SK스퀘어">SK스퀘어</span>
+          <span class="position"><b class="change new">NEW</b></span>
+          <div class="track"><div class="bar" style="width:8.63663%;background:#1677D2"></div></div>
+          <span class="cap">129.5</span>
+        </div>
+<div class="stock-row" data-code="009150" data-info="{&quot;name&quot;: &quot;삼성전기&quot;, &quot;code&quot;: &quot;009150&quot;, &quot;sector&quot;: &quot;정보기술&quot;, &quot;a_rank&quot;: 36, &quot;a_cap&quot;: 11.1518, &quot;b_rank&quot;: 5, &quot;b_cap&quot;: 104.5712, &quot;present24&quot;: false, &quot;present26&quot;: true}" tabindex="0">
+          <span class="rank">05</span>
+          <span class="company" title="삼성전기">삼성전기</span>
+          <span class="position"><b class="change new">NEW</b></span>
+          <div class="track"><div class="bar" style="width:6.97141%;background:#6838C4"></div></div>
+          <span class="cap">104.6</span>
+        </div>
+<div class="stock-row" data-code="373220" data-info="{&quot;name&quot;: &quot;LG에너지솔루션&quot;, &quot;code&quot;: &quot;373220&quot;, &quot;sector&quot;: &quot;산업재&quot;, &quot;a_rank&quot;: 3, &quot;a_cap&quot;: 95.706, &quot;b_rank&quot;: 6, &quot;b_cap&quot;: 81.315, &quot;present24&quot;: true, &quot;present26&quot;: true}" tabindex="0">
+          <span class="rank">06</span>
+          <span class="company" title="LG에너지솔루션">LG에너지솔루션</span>
+          <span class="position"><b class="change down-small">▼ -3</b></span>
+          <div class="track"><div class="bar" style="width:5.42100%;background:#1677D2"></div></div>
+          <span class="cap">81.3</span>
+        </div>
+<div class="stock-row" data-code="005380" data-info="{&quot;name&quot;: &quot;현대차&quot;, &quot;code&quot;: &quot;005380&quot;, &quot;sector&quot;: &quot;모빌리티&quot;, &quot;a_rank&quot;: 6, &quot;a_cap&quot;: 51.6137, &quot;b_rank&quot;: 7, &quot;b_cap&quot;: 77.3984, &quot;present24&quot;: true, &quot;present26&quot;: true}" tabindex="0">
+          <span class="rank">07</span>
+          <span class="company" title="현대차">현대차</span>
+          <span class="position"><b class="change down-small">▼ -1</b></span>
+          <div class="track"><div class="bar" style="width:5.15989%;background:#21A45A"></div></div>
+          <span class="cap">77.4</span>
+        </div>
+<div class="stock-row" data-code="207940" data-info="{&quot;name&quot;: &quot;삼성바이오로직스&quot;, &quot;code&quot;: &quot;207940&quot;, &quot;sector&quot;: &quot;헬스케어&quot;, &quot;a_rank&quot;: 4, &quot;a_cap&quot;: 59.5015, &quot;b_rank&quot;: 8, &quot;b_cap&quot;: 69.4827, &quot;present24&quot;: true, &quot;present26&quot;: true}" tabindex="0">
+          <span class="rank">08</span>
+          <span class="company" title="삼성바이오로직스">삼성바이오로직스</span>
+          <span class="position"><b class="change down-big">▼ -4</b></span>
+          <div class="track"><div class="bar" style="width:4.63218%;background:#EF5AA1"></div></div>
+          <span class="cap">69.5</span>
+        </div>
+<div class="stock-row" data-code="028260" data-info="{&quot;name&quot;: &quot;삼성물산&quot;, &quot;code&quot;: &quot;028260&quot;, &quot;sector&quot;: &quot;산업재&quot;, &quot;a_rank&quot;: 13, &quot;a_cap&quot;: 29.2678, &quot;b_rank&quot;: 9, &quot;b_cap&quot;: 60.4885, &quot;present24&quot;: true, &quot;present26&quot;: true}" tabindex="0">
+          <span class="rank">09</span>
+          <span class="company" title="삼성물산">삼성물산</span>
+          <span class="position"><b class="change up-big">▲ +4</b></span>
+          <div class="track"><div class="bar" style="width:4.03257%;background:#1677D2"></div></div>
+          <span class="cap">60.5</span>
+        </div>
+<div class="stock-row" data-code="105560" data-info="{&quot;name&quot;: &quot;KB금융&quot;, &quot;code&quot;: &quot;105560&quot;, &quot;sector&quot;: &quot;금융 및 부동산&quot;, &quot;a_rank&quot;: 14, &quot;a_cap&quot;: 27.8423, &quot;b_rank&quot;: 10, &quot;b_cap&quot;: 59.9777, &quot;present24&quot;: true, &quot;present26&quot;: true}" tabindex="0">
+          <span class="rank">10</span>
+          <span class="company" title="KB금융">KB금융</span>
+          <span class="position"><b class="change up-big">▲ +4</b></span>
+          <div class="track"><div class="bar" style="width:3.99851%;background:#0C55B7"></div></div>
+          <span class="cap">60.0</span>
+        </div>
+<div class="stock-row" data-code="032830" data-info="{&quot;name&quot;: &quot;삼성생명&quot;, &quot;code&quot;: &quot;032830&quot;, &quot;sector&quot;: &quot;금융 및 부동산&quot;, &quot;a_rank&quot;: 19, &quot;a_cap&quot;: 18.82, &quot;b_rank&quot;: 11, &quot;b_cap&quot;: 58.8, &quot;present24&quot;: true, &quot;present26&quot;: true}" tabindex="0">
+          <span class="rank">11</span>
+          <span class="company" title="삼성생명">삼성생명</span>
+          <span class="position"><b class="change up-big">▲ +8</b></span>
+          <div class="track"><div class="bar" style="width:3.92000%;background:#0C55B7"></div></div>
+          <span class="cap">58.8</span>
+        </div>
+<div class="stock-row" data-code="012450" data-info="{&quot;name&quot;: &quot;한화에어로스페이스&quot;, &quot;code&quot;: &quot;012450&quot;, &quot;sector&quot;: &quot;산업재&quot;, &quot;a_rank&quot;: 34, &quot;a_cap&quot;: 11.2905, &quot;b_rank&quot;: 12, &quot;b_cap&quot;: 52.8525, &quot;present24&quot;: false, &quot;present26&quot;: true}" tabindex="0">
+          <span class="rank">12</span>
+          <span class="company" title="한화에어로스페이스">한화에어로스페이스</span>
+          <span class="position"><b class="change new">NEW</b></span>
+          <div class="track"><div class="bar" style="width:3.52350%;background:#1677D2"></div></div>
+          <span class="cap">52.9</span>
+        </div>
+<div class="stock-row" data-code="055550" data-info="{&quot;name&quot;: &quot;신한지주&quot;, &quot;code&quot;: &quot;055550&quot;, &quot;sector&quot;: &quot;금융 및 부동산&quot;, &quot;a_rank&quot;: 18, &quot;a_cap&quot;: 24.0997, &quot;b_rank&quot;: 13, &quot;b_cap&quot;: 51.8743, &quot;present24&quot;: true, &quot;present26&quot;: true}" tabindex="0">
+          <span class="rank">13</span>
+          <span class="company" title="신한지주">신한지주</span>
+          <span class="position"><b class="change up-big">▲ +5</b></span>
+          <div class="track"><div class="bar" style="width:3.45829%;background:#0C55B7"></div></div>
+          <span class="cap">51.9</span>
+        </div>
+<div class="stock-row" data-code="034020" data-info="{&quot;name&quot;: &quot;두산에너빌리티&quot;, &quot;code&quot;: &quot;034020&quot;, &quot;sector&quot;: &quot;산업재&quot;, &quot;a_rank&quot;: 35, &quot;a_cap&quot;: 11.197, &quot;b_rank&quot;: 14, &quot;b_cap&quot;: 49.067, &quot;present24&quot;: false, &quot;present26&quot;: true}" tabindex="0">
+          <span class="rank">14</span>
+          <span class="company" title="두산에너빌리티">두산에너빌리티</span>
+          <span class="position"><b class="change new">NEW</b></span>
+          <div class="track"><div class="bar" style="width:3.27113%;background:#1677D2"></div></div>
+          <span class="cap">49.1</span>
+        </div>
+<div class="stock-row" data-code="000270" data-info="{&quot;name&quot;: &quot;기아&quot;, &quot;code&quot;: &quot;000270&quot;, &quot;sector&quot;: &quot;모빌리티&quot;, &quot;a_rank&quot;: 7, &quot;a_cap&quot;: 45.6722, &quot;b_rank&quot;: 15, &quot;b_cap&quot;: 48.5674, &quot;present24&quot;: true, &quot;present26&quot;: true}" tabindex="0">
+          <span class="rank">15</span>
+          <span class="company" title="기아">기아</span>
+          <span class="position"><b class="change down-big">▼ -8</b></span>
+          <div class="track"><div class="bar" style="width:3.23783%;background:#21A45A"></div></div>
+          <span class="cap">48.6</span>
+        </div>
+<div class="stock-row" data-code="329180" data-info="{&quot;name&quot;: &quot;HD현대중공업&quot;, &quot;code&quot;: &quot;329180&quot;, &quot;sector&quot;: &quot;산업재&quot;, &quot;a_rank&quot;: 41, &quot;a_cap&quot;: 10.5995, &quot;b_rank&quot;: 16, &quot;b_cap&quot;: 44.2936, &quot;present24&quot;: false, &quot;present26&quot;: true}" tabindex="0">
+          <span class="rank">16</span>
+          <span class="company" title="HD현대중공업">HD현대중공업</span>
+          <span class="position"><b class="change new">NEW</b></span>
+          <div class="track"><div class="bar" style="width:2.95291%;background:#1677D2"></div></div>
+          <span class="cap">44.3</span>
+        </div>
+<div class="stock-row" data-code="006400" data-info="{&quot;name&quot;: &quot;삼성SDI&quot;, &quot;code&quot;: &quot;006400&quot;, &quot;sector&quot;: &quot;산업재&quot;, &quot;a_rank&quot;: 10, &quot;a_cap&quot;: 33.0414, &quot;b_rank&quot;: 17, &quot;b_cap&quot;: 43.355, &quot;present24&quot;: true, &quot;present26&quot;: true}" tabindex="0">
+          <span class="rank">17</span>
+          <span class="company" title="삼성SDI">삼성SDI</span>
+          <span class="position"><b class="change down-big">▼ -7</b></span>
+          <div class="track"><div class="bar" style="width:2.89033%;background:#1677D2"></div></div>
+          <span class="cap">43.4</span>
+        </div>
+<div class="stock-row" data-code="068270" data-info="{&quot;name&quot;: &quot;셀트리온&quot;, &quot;code&quot;: &quot;068270&quot;, &quot;sector&quot;: &quot;헬스케어&quot;, &quot;a_rank&quot;: 8, &quot;a_cap&quot;: 40.1648, &quot;b_rank&quot;: 18, &quot;b_cap&quot;: 43.3366, &quot;present24&quot;: true, &quot;present26&quot;: true}" tabindex="0">
+          <span class="rank">18</span>
+          <span class="company" title="셀트리온">셀트리온</span>
+          <span class="position"><b class="change down-big">▼ -10</b></span>
+          <div class="track"><div class="bar" style="width:2.88911%;background:#EF5AA1"></div></div>
+          <span class="cap">43.3</span>
+        </div>
+<div class="stock-row" data-code="034730" data-info="{&quot;name&quot;: &quot;SK&quot;, &quot;code&quot;: &quot;034730&quot;, &quot;sector&quot;: &quot;정보기술&quot;, &quot;a_rank&quot;: 26, &quot;a_cap&quot;: 13.5563, &quot;b_rank&quot;: 19, &quot;b_cap&quot;: 39.514, &quot;present24&quot;: true, &quot;present26&quot;: true}" tabindex="0">
+          <span class="rank">19</span>
+          <span class="company" title="SK">SK</span>
+          <span class="position"><b class="change up-big">▲ +7</b></span>
+          <div class="track"><div class="bar" style="width:2.63427%;background:#6838C4"></div></div>
+          <span class="cap">39.5</span>
+        </div>
+<div class="stock-row" data-code="012330" data-info="{&quot;name&quot;: &quot;현대모비스&quot;, &quot;code&quot;: &quot;012330&quot;, &quot;sector&quot;: &quot;모빌리티&quot;, &quot;a_rank&quot;: 15, &quot;a_cap&quot;: 24.7718, &quot;b_rank&quot;: 20, &quot;b_cap&quot;: 37.3205, &quot;present24&quot;: true, &quot;present26&quot;: true}" tabindex="0">
+          <span class="rank">20</span>
+          <span class="company" title="현대모비스">현대모비스</span>
+          <span class="position"><b class="change down-big">▼ -5</b></span>
+          <div class="track"><div class="bar" style="width:2.48803%;background:#21A45A"></div></div>
+          <span class="cap">37.3</span>
+        </div>
+<div class="stock-row" data-code="086790" data-info="{&quot;name&quot;: &quot;하나금융지주&quot;, &quot;code&quot;: &quot;086790&quot;, &quot;sector&quot;: &quot;금융 및 부동산&quot;, &quot;a_rank&quot;: 20, &quot;a_cap&quot;: 17.2198, &quot;b_rank&quot;: 21, &quot;b_cap&quot;: 37.0122, &quot;present24&quot;: true, &quot;present26&quot;: true}" tabindex="0">
+          <span class="rank">21</span>
+          <span class="company" title="하나금융지주">하나금융지주</span>
+          <span class="position"><b class="change down-small">▼ -1</b></span>
+          <div class="track"><div class="bar" style="width:2.46748%;background:#0C55B7"></div></div>
+          <span class="cap">37.0</span>
+        </div>
+<div class="stock-row" data-code="066570" data-info="{&quot;name&quot;: &quot;LG전자&quot;, &quot;code&quot;: &quot;066570&quot;, &quot;sector&quot;: &quot;소비재&quot;, &quot;a_rank&quot;: 22, &quot;a_cap&quot;: 15.8738, &quot;b_rank&quot;: 22, &quot;b_cap&quot;: 32.6584, &quot;present24&quot;: true, &quot;present26&quot;: true}" tabindex="0">
+          <span class="rank">22</span>
+          <span class="company" title="LG전자">LG전자</span>
+          <span class="position"><b class="change flat">━ 0</b></span>
+          <div class="track"><div class="bar" style="width:2.17723%;background:#D62839"></div></div>
+          <span class="cap">32.7</span>
+        </div>
+<div class="stock-row" data-code="035420" data-info="{&quot;name&quot;: &quot;NAVER&quot;, &quot;code&quot;: &quot;035420&quot;, &quot;sector&quot;: &quot;미디어 및 콘텐츠&quot;, &quot;a_rank&quot;: 12, &quot;a_cap&quot;: 30.7439, &quot;b_rank&quot;: 23, &quot;b_cap&quot;: 31.784, &quot;present24&quot;: true, &quot;present26&quot;: true}" tabindex="0">
+          <span class="rank">23</span>
+          <span class="company" title="NAVER">NAVER</span>
+          <span class="position"><b class="change down-big">▼ -11</b></span>
+          <div class="track"><div class="bar" style="width:2.11893%;background:#93B91C"></div></div>
+          <span class="cap">31.8</span>
+        </div>
+<div class="stock-row" data-code="010120" data-info="{&quot;name&quot;: &quot;LS ELECTRIC&quot;, &quot;code&quot;: &quot;010120&quot;, &quot;sector&quot;: &quot;산업재&quot;, &quot;a_rank&quot;: 113, &quot;a_cap&quot;: 2.964, &quot;b_rank&quot;: 24, &quot;b_cap&quot;: 29.355, &quot;present24&quot;: false, &quot;present26&quot;: true}" tabindex="0">
+          <span class="rank">24</span>
+          <span class="company" title="LS ELECTRIC">LS ELECTRIC</span>
+          <span class="position"><b class="change new">NEW</b></span>
+          <div class="track"><div class="bar" style="width:1.95700%;background:#1677D2"></div></div>
+          <span class="cap">29.4</span>
+        </div>
+<div class="stock-row" data-code="000810" data-info="{&quot;name&quot;: &quot;삼성화재&quot;, &quot;code&quot;: &quot;000810&quot;, &quot;sector&quot;: &quot;금융 및 부동산&quot;, &quot;a_rank&quot;: 23, &quot;a_cap&quot;: 14.5441, &quot;b_rank&quot;: 25, &quot;b_cap&quot;: 29.3334, &quot;present24&quot;: true, &quot;present26&quot;: true}" tabindex="0">
+          <span class="rank">25</span>
+          <span class="company" title="삼성화재">삼성화재</span>
+          <span class="position"><b class="change down-small">▼ -2</b></span>
+          <div class="track"><div class="bar" style="width:1.95556%;background:#0C55B7"></div></div>
+          <span class="cap">29.3</span>
+        </div>
+<div class="stock-row" data-code="005490" data-info="{&quot;name&quot;: &quot;POSCO홀딩스&quot;, &quot;code&quot;: &quot;005490&quot;, &quot;sector&quot;: &quot;소재&quot;, &quot;a_rank&quot;: 9, &quot;a_cap&quot;: 36.1965, &quot;b_rank&quot;: 26, &quot;b_cap&quot;: 26.1497, &quot;present24&quot;: true, &quot;present26&quot;: true}" tabindex="0">
+          <span class="rank">26</span>
+          <span class="company" title="POSCO홀딩스">POSCO홀딩스</span>
+          <span class="position"><b class="change down-big">▼ -17</b></span>
+          <div class="track"><div class="bar" style="width:1.74331%;background:#7B8794"></div></div>
+          <span class="cap">26.1</span>
+        </div>
+<div class="stock-row" data-code="298040" data-info="{&quot;name&quot;: &quot;효성중공업&quot;, &quot;code&quot;: &quot;298040&quot;, &quot;sector&quot;: &quot;산업재&quot;, &quot;a_rank&quot;: 131, &quot;a_cap&quot;: 2.429, &quot;b_rank&quot;: 27, &quot;b_cap&quot;: 25.7824, &quot;present24&quot;: false, &quot;present26&quot;: true}" tabindex="0">
+          <span class="rank">27</span>
+          <span class="company" title="효성중공업">효성중공업</span>
+          <span class="position"><b class="change new">NEW</b></span>
+          <div class="track"><div class="bar" style="width:1.71883%;background:#1677D2"></div></div>
+          <span class="cap">25.8</span>
+        </div>
+<div class="stock-row" data-code="267260" data-info="{&quot;name&quot;: &quot;HD현대일렉트릭&quot;, &quot;code&quot;: &quot;267260&quot;, &quot;sector&quot;: &quot;산업재&quot;, &quot;a_rank&quot;: 62, &quot;a_cap&quot;: 6.6002, &quot;b_rank&quot;: 28, &quot;b_cap&quot;: 25.6295, &quot;present24&quot;: false, &quot;present26&quot;: true}" tabindex="0">
+          <span class="rank">28</span>
+          <span class="company" title="HD현대일렉트릭">HD현대일렉트릭</span>
+          <span class="position"><b class="change new">NEW</b></span>
+          <div class="track"><div class="bar" style="width:1.70863%;background:#1677D2"></div></div>
+          <span class="cap">25.6</span>
+        </div>
+<div class="stock-row" data-code="316140" data-info="{&quot;name&quot;: &quot;우리금융지주&quot;, &quot;code&quot;: &quot;316140&quot;, &quot;sector&quot;: &quot;금융 및 부동산&quot;, &quot;a_rank&quot;: 39, &quot;a_cap&quot;: 10.986, &quot;b_rank&quot;: 29, &quot;b_cap&quot;: 25.4191, &quot;present24&quot;: false, &quot;present26&quot;: true}" tabindex="0">
+          <span class="rank">29</span>
+          <span class="company" title="우리금융지주">우리금융지주</span>
+          <span class="position"><b class="change new">NEW</b></span>
+          <div class="track"><div class="bar" style="width:1.69461%;background:#0C55B7"></div></div>
+          <span class="cap">25.4</span>
+        </div>
+<div class="stock-row" data-code="010130" data-info="{&quot;name&quot;: &quot;고려아연&quot;, &quot;code&quot;: &quot;010130&quot;, &quot;sector&quot;: &quot;소재&quot;, &quot;a_rank&quot;: 43, &quot;a_cap&quot;: 9.618, &quot;b_rank&quot;: 30, &quot;b_cap&quot;: 25.3815, &quot;present24&quot;: false, &quot;present26&quot;: true}" tabindex="0">
+          <span class="rank">30</span>
+          <span class="company" title="고려아연">고려아연</span>
+          <span class="position"><b class="change new">NEW</b></span>
+          <div class="track"><div class="bar" style="width:1.69210%;background:#7B8794"></div></div>
+          <span class="cap">25.4</span>
+        </div><div class="axis"><span>0</span><span>300</span><span>600</span><span>900</span><span>1200</span><span>1500조</span></div></section></div>
+<div class="notes"><div class="note"><strong>분석 기준 · 선정 이유</strong><div>코스피 상위 30위권 두 시점 비교, 시장가치(시가총액)를 동일 축으로 표현.</div><div>KRICS는 한국거래소가 도입한 국내 상장기업 산업분류체계(9개 섹터·24개 산업그룹).</div><div>섹터를 색상으로 구분해 상위권 기업의 산업별 구성 변화를 비교.</div></div>
+<div class="note"><strong>핵심 결과</strong><div>잔류 20개 · 신규 진입 10개 · 탈락 10개.</div><div>삼성전자·SK하이닉스의 상위 30개 시가총액 합계 대비 비중: 42.9% → 64.0%.</div><div class="legend"><span class="legend-item"><i style="background:#6838C4"></i>정보기술</span><span class="legend-item"><i style="background:#EE7B19"></i>에너지화학</span><span class="legend-item"><i style="background:#7B8794"></i>소재</span><span class="legend-item"><i style="background:#1677D2"></i>산업재</span><span class="legend-item"><i style="background:#21A45A"></i>모빌리티</span><span class="legend-item"><i style="background:#0C55B7"></i>금융 및 부동산</span><span class="legend-item"><i style="background:#D62839"></i>소비재</span><span class="legend-item"><i style="background:#EF5AA1"></i>헬스케어</span><span class="legend-item"><i style="background:#93B91C"></i>미디어 및 콘텐츠</span></div></div></div>
+<p class="foot">※ 2024년 오른쪽 숫자는 해당 종목의 2026년 실제 코스피 순위. 빨간색은 30위권 밖. 2026년 NEW는 2024년 30위권 밖을 의미함. KRICS는 2026년 도입 분류를 소급 적용한 시안이며 종목별 공식 분류 최종 대조 필요.</p>
+</main><div id="tooltip"></div>
+<script>
+(()=>{const rows=[...document.querySelectorAll('.stock-row')],tip=document.getElementById('tooltip');
+function tipHtml(d){return `<b>${d.name}</b> <span class="muted">${d.sector}</span><div>2024년: ${d.a_rank}위 · ${Number(d.a_cap).toLocaleString('ko-KR',{maximumFractionDigits:2})}조 원${!d.present24?' (30위권 밖)':''}</div><div>2026년: ${d.b_rank}위 · ${Number(d.b_cap).toLocaleString('ko-KR',{maximumFractionDigits:2})}조 원${!d.present26?' (30위권 밖)':''}</div>`}
+function activate(el,e){const code=el.dataset.code;for(const row of rows){row.classList.toggle('active',row.dataset.code===code);row.classList.toggle('dim',row.dataset.code!==code)}const d=JSON.parse(el.dataset.info);tip.innerHTML=tipHtml(d);tip.style.display='block';place(e)}
+function place(e){if(!e||!e.clientX)return;const x=Math.min(e.clientX+18,window.innerWidth-360),y=Math.min(e.clientY+12,window.innerHeight-125);tip.style.left=Math.max(6,x)+'px';tip.style.top=Math.max(6,y)+'px'}
+function reset(){for(const row of rows)row.classList.remove('active','dim');tip.style.display='none'}
+for(const row of rows){row.addEventListener('mouseenter',e=>activate(row,e));row.addEventListener('mousemove',place);row.addEventListener('mouseleave',reset);row.addEventListener('focus',e=>activate(row,null));row.addEventListener('blur',reset);row.addEventListener('click',e=>activate(row,e))}
+})();
+</script></body></html>
