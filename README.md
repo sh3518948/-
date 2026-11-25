@@ -36,3 +36,16 @@
 
 ※ 분석 결과 및 그래프는 검증과 디자인 수정에 따라 변경될 수 있음.
 모든 질문에 대한 html을 별도로 제작 후 마무리 단계에서 통합 예정(수정편의성 목적)
+
+
+
+질문별 분석 자료 및 그래프
+
+각 질문의 HTML 파일은 분석 결과를 시각화한 자료입니다. 그래프 실행을 선택하면 GitHub Pages에서 실제 그래프를 확인할 수 있습니다.
+
+질문| 분석 주제| HTML 파일| 그래프 실행
+1| 시가총액 상위 30개 종목 순위 변화| "HTML 파일" (question1_slide1.html)| "그래프 실행" (https://sh3518948.github.io/-/question1_slide1.html)
+2| 업종 간 주가수익률 격차 변화| "HTML 파일" (question2_revised.html)| "그래프 실행" (https://sh3518948.github.io/-/question2_revised.html)
+3| 업종 간 주가수익률 동조화| "HTML 파일" (question3_draft.html)| "그래프 실행" (https://sh3518948.github.io/-/question3_draft.html)
+
+※ 현재 자료는 분석 및 시각화 작업 중인 초안이며, 검증과 수정에 따라 내용이 변경될 수 있습니다.
